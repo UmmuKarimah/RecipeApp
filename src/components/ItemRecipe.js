@@ -2,13 +2,15 @@ import React from "react";
 import {View, Text, StyleSheet, TouchableOpacity, Image}  from 'react-native';
 import colors from "../theme/color";
 import { Ionicons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
 const ItemRecipe = ({item}) => {
-    console.log('props: ', item);
+    const navigation = useNavigation();
     return (
         <View>
             <TouchableOpacity 
-            onPress={() =>{} }
+            onPress={() => navigation.navigate('RecipeDetailScreen',
+                {recipeId: item.id}) }
             style={styles.itemContainer} 
             >
                 <Image
